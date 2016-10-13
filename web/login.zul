@@ -1,0 +1,36 @@
+<?page title="Auto Generated index.zul"?>
+<window title="Hello World!!" border="normal" width="400px"
+	apply="com.hsd.zkoss.todo.ui.composer.LoginComposer">
+
+	<grid>
+		<columns>
+			<column label="" />
+			<column label="" />
+		</columns>
+		<auxhead>
+			<auxheader colspan="2" label="Login Form"
+				style="font-size:16px" />
+		</auxhead>
+		<rows>
+			<row>
+				<label value="You are using: ${desktop.webApp.version}" />
+			</row>
+			<row>
+				Account
+				<textbox id="accountText" hflex="1"
+					constraint="no empty" value="@bind(fx.account)" />
+				<!-- <label class="error" value="@load(vmsgs['password'])" /> -->
+			</row>
+			<row>
+				Password
+				<textbox id="passwordText" type="password" hflex="1"
+					constraint="no empty" value="@bind(fx.password)" />
+			</row>
+			<row align="right" spans="2">
+				<button id="nextButton" label="Next" />
+			</row>
+		</rows>
+	</grid>
+
+
+</window>

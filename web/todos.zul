@@ -1,0 +1,57 @@
+<?page title="Auto Generated index.zul"?>
+
+<?init class="com.hsd.zkoss.todo.ui.auth.AuthenticationInit"?>
+<zk>
+	<style src="/css/style.css" />
+	<div class="bodyDiv">
+		<div style="display: inline-block;">
+			<div apply="org.zkoss.bind.BindComposer"
+				viewModel="@id('vm') @init('com.hsd.zkoss.todo.ui.model.TodoViewModel')"
+				onCreate="@command('onCreate')"
+				form="@id('fadd') @load(vm.addForm) @save(vm.addForm, before='addTodo')">
+				<grid>
+					<columns>
+						<column width="200px" />
+						<column width="100px" />
+					</columns>
+					<rows>
+						<row>
+							<hlayout>
+								<textbox value="@bind(fadd.addText)"
+									width="150px" tabindex="1" />
+							</hlayout>
+							<button id="addTodoButton" label="Add Todo"
+								onClick="@command('addTodo')" />
+						</row>
+					</rows>
+				</grid>
+				<listbox id="todoList" width="600px">
+					<listhead>
+						<listheader label="Active" width="100px"
+							align="left" />
+						<listheader label="Title" width="300px"
+							align="left" />
+						<listheader label="Actions" width="180px"
+							align="left" />
+					</listhead>
+					<template name="model">
+						<listitem id="cont_${each.id}"
+							draggable="${each.isActive}" droppable="${each.isActive}"
+							onDrop="@command('onDrop', event=event)">
+							<listcell>
+								<checkbox checked="${each.isActive}"
+									id="active_${each.id}" disabled="${!each.isActive}"
+									onCheck="@command('completeTodo', target=self)" />
+							</listcell>
+							<listcell label="${each.title}" />
+							<listcell label="${each.order}" />
+						</listitem>
+					</template>
+				</listbox>
+				<div align="right">
+					<button onClick="@command('logout')" label="Logout" />
+				</div>
+			</div>
+		</div>
+	</div>
+</zk>

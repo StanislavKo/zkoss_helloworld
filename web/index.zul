@@ -1,0 +1,8 @@
+<?page title="Auto Generated index.zul"?>
+
+<?init class="com.hsd.zkoss.todo.ui.auth.AuthenticationInit"?>
+
+<window title="Hello World!!" border="normal" width="400px">
+
+
+</window>
